@@ -5,7 +5,7 @@ import CardList from './components/CardList'
 
 const App = () => {
   return (
-    <div className='bg-primary-cyanBackground'>
+    <div className=''>
       <Background />
       <Body>
         <CardList/>
