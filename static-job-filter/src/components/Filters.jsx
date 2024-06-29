@@ -8,7 +8,11 @@ function Filters({data}) {
 
   return (
     <div className="filters flex gap-2 flex-wrap">
-      {cardFilters.map((filter) => <Button filter={filter} />)}
+      {
+        cardFilters.map(
+          (filter) => <Button key={filter} filter={filter} />
+        )
+      }
     </div>
   )
 }

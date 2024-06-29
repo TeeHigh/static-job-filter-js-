@@ -6,10 +6,10 @@ const CardList = () => {
   const {filterList, data} = useCards();
 
   return (
-    <div>
+    <div className={`${filterList.length > 0 ? 'mt-0' :'mt-20' }`}>
       {
         data && data.map((item) =>(
-          <Card dataItem={item} />
+          <Card key={item.id} dataItem={item} />
         ))
       }
     </div>
