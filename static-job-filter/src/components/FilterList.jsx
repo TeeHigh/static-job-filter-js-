@@ -8,7 +8,7 @@ function FilterList() {
   return (
     <div className="bg-white mb-20 md:mb-5 px-6 py-4 md:px-10 shadow-lg rounded-md flex justify-between translate-y-[-40px]">
       {/* ----filter items------ */}
-      <div className='flex gap-3'>
+      <div className='flex gap-3 flex-wrap'>
         {
           filterList.map((item) => (
             <FilterButtons key={item} item={item}/>

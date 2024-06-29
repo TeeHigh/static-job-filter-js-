@@ -13,9 +13,9 @@ function FilterButtons({item}) {
   return (
     <div className='flex items-center rounded-md bg-primary-cyanBackground gap-1'>
 
-      <p key={item} className='px-3 text-primary-desaturatedDarkCyan font-bold'>{item}</p>
+      <p key={item} className='px-3 text-primary-desaturatedDarkCyan font-bold cursor-default'>{item}</p>
 
-      <button className='cursor-pointer font-extrabold text-2xl bg-primary-desaturatedDarkCyan text-white px-2 rounded-r-md' onClick={handleDelete}>×</button>
+      <button className='cursor-pointer font-extrabold text-2xl bg-primary-desaturatedDarkCyan hover:bg-primary-veryDarkGrayishCyan text-white px-2 rounded-r-md' onClick={handleDelete}>×</button>
 
     </div>
   )

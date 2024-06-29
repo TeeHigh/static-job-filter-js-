@@ -4,7 +4,7 @@ import data from "../../public/data.json"
 const CardContext = createContext();
 
 const initialState = {
-  filterList: ["React", "JavaScript"],
+  filterList: ["Frontend", "CSS", "JavaScript"],
 }
 
 function reducer(state, action) {
