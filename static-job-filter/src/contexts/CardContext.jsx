@@ -4,11 +4,11 @@ import data from "../../public/data.json"
 const CardContext = createContext();
 
 const initialState = {
-  filterList: ["React"],
+  filterList: ["React", "JavaScript"],
 }
 
-function reducer(state, action){
-  switch(action.type){
+function reducer(state, action) {
+  switch (action.type) {
     case 'addFilter':
       return {
         ...state,
@@ -17,8 +17,15 @@ function reducer(state, action){
           action.payload
         ]
       }
+    case 'removeFilter':
+      return {
+        ...state,
+        filterList: [
+          ...state.filterList.filter((filter) => filter !== action.payload),
+        ]
+      }
     case 'clearFilterList':
-      return{
+      return {
         ...state,
         filterList: []
       }
@@ -26,25 +33,29 @@ function reducer(state, action){
 }
 
 
-function CardProvider({children}){
-  const [{filterList}, dispatch] = useReducer(reducer, initialState);
+function CardProvider({ children }) {
+  const [{ filterList }, dispatch] = useReducer(reducer, initialState);
 
   console.log(filterList)
 
-  function addFilter(filter){
-    // !filterList.includes(filter) && filterList.append(filter)
-    !filterList.includes(filter) && dispatch({type: "addFilter", payload: filter})
+  function addFilter(filter) {
+    !filterList.includes(filter) && dispatch({ type: "addFilter", payload: filter })
   }
 
-  function clearFilterList(){
-    dispatch({type: "clearFilterList"})
+  function removeFilter(filter) {
+    dispatch({ type: "removeFilter", payload: filter })
   }
 
-  return(
+  function clearFilterList() {
+    dispatch({ type: "clearFilterList" })
+  }
+
+  return (
     <CardContext.Provider value={{
       filterList,
       data,
       addFilter,
+      removeFilter,
       clearFilterList,
     }}>
       {children}
@@ -52,12 +63,12 @@ function CardProvider({children}){
   )
 }
 
-function useCards(){
+function useCards() {
   const context = useContext(CardContext);
 
-  if(context === undefined) throw new Error("CardContext was used outside of CardProvider");
+  if (context === undefined) throw new Error("CardContext was used outside of CardProvider");
 
   return context;
 }
 
-export {useCards, CardProvider};
+export { useCards, CardProvider };
