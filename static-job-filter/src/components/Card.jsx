@@ -19,7 +19,7 @@ const Card = ({ dataItem }) => {
         </div>
 
         {/* separating line  */}
-        <div className='bg-primary-darkGrayishCyan h-[1px] w-full  md:hidden'></div>
+        <div className='bg-primary-darkGrayishCyan h-[1px] w-full md:hidden'></div>
 
         {/* Right/lower part of card  */}
         <div className="card-right">
